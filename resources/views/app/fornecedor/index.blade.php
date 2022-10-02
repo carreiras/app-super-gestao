@@ -3,25 +3,21 @@
 @php
 
     /*
-     * if (!<condicao>) {}  // enquanto executa se o retorno for true
+     * if (isset(variavel)) {}  // retornar true se a variavel estiver definida
      */
 @endphp
 
 {{--@dd($fornecedores)--}}
 
-{{-- @unless executa se o retorno for false --}}
+@isset($fornecedores)
+    Fornecedor: {{ $fornecedores[1]['nome'] }}
+    <br>
+    Status: {{ $fornecedores[1]['status'] }}
+    <br>
+    @isset($fornecedores[1]['cnpj'])
+        Cnpf: {{ $fornecedores[1]['cnpj'] }}
+    @endisset
+@endisset
 
-Fornecedor: {{ $fornecedores[0]['nome'] }}
-<br>
-Status: {{ $fornecedores[0]['status'] }}
-<br>
-@if(!($fornecedores[0]['status'] == 'S'))
-    Fornecedor inativo
-@endif
-<br>
-@unless($fornecedores[0]['status'] == 'S')  <!-- se o retorno da condição for false -->
-    Fornecedor inativo
-@endunless
-<br>
 
 
