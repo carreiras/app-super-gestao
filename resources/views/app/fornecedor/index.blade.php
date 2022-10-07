@@ -2,7 +2,7 @@
 
 @php
 
-    /*
+/*
      * if (empty(variavel)) {}  // retornar true se a variavel estiver vazia
      * - ''
      * - 0
@@ -15,23 +15,33 @@
      */
 @endphp
 
-{{--@dd($fornecedores)--}}
+{{-- @dd($fornecedores) --}}
 
 @isset($fornecedores)
 
     @forelse($fornecedores as $indice => $fornecedor)
-        Fornecedor: @{{ $fornecedor['nome'] }}
+        @dd($loop);
+
+        Iteração atual: {{ $loop->iteration }}
+        Fornecedor: {{ $fornecedor['nome'] }}
         <br>
-        Status: @{{ $fornecedor['status'] }}
+        Status: {{ $fornecedor['status'] }}
         <br>
-        CNPJ: @{{ $fornecedor['cnpj'] ?? ''}}
+        CNPJ: {{ $fornecedor['cnpj'] ?? '' }}
         <br>
-        Telefone: @{{ $fornecedor['ddd'] ?? ''}} - @{{ $fornecedor['telefone'] ?? ''}}
+        Telefone: {{ $fornecedor['ddd'] ?? '' }} - {{ $fornecedor['telefone'] ?? '' }}
+        <br>
+        @if ($loop->first)
+            Primeira iteração do Loop
+            <br>
+            Total de registros {{ $loop->count }}
+        @endif
+        @if ($loop->last)
+            Última iteração do Loop
+        @endif
+
         <hr>
     @empty
         Não existem fornecedores cadastrados!!!
     @endforelse
 @endisset
-
-
-
