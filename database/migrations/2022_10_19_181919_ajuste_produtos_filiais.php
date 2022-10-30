@@ -50,7 +50,7 @@ return new class extends Migration
     {
         // adcionar colunas da tabela produtos
         Schema::table('produtos', function (Blueprint $table) {
-            $table->decimal('preco_venda', 8, 2);
+            $table->decimal('preco_venda');
             $table->integer('estoque_minimo');
             $table->integer('estoque_maximo');
         });
