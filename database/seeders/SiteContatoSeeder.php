@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\SiteContato;
 use Illuminate\Database\Seeder;
 
-//use app\Models\SiteContato;
 
 class SiteContatoSeeder extends Seeder
 {
@@ -25,5 +24,6 @@ class SiteContatoSeeder extends Seeder
 //        $contato->save();
 
         SiteContato::factory(100)->create();
+//        \App\Models\SiteContato::factory()->count(30)->create();
     }
 }
